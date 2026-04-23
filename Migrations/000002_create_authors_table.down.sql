@@ -1,0 +1,1 @@
+DROP TABLET IF EXISTS authors

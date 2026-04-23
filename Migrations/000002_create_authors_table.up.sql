@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS authors(
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    surname TEXT NOT NULL,
+    bio TEXT NOT NULL
+)
