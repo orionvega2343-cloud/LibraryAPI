@@ -13,12 +13,12 @@ func NewBookService(book *repository.BookRepository) *BookService {
 	return &BookService{repo: book}
 }
 
-func (s *BookService) Create(book *model.Book) error {
+func (s *BookService) Create(book *model.Book) (*model.Book, error) {
 	err := s.repo.Create(book)
 	if err != nil {
-		return err
+		return nil, err
 	}
-	return nil
+	return book, nil
 }
 
 func (s *BookService) GetById(id int) (*model.Book, error) {

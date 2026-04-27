@@ -13,12 +13,12 @@ func NewReviewService(review *repository.ReviewRepository) *ReviewService {
 	return &ReviewService{repo: review}
 }
 
-func (s *ReviewService) Create(review *model.Reviews) error {
+func (s *ReviewService) Create(review *model.Reviews) (model.Reviews, error) {
 	err := s.repo.Create(review)
 	if err != nil {
-		return err
+		return model.Reviews{}, err
 	}
-	return nil
+	return *review, nil
 }
 
 func (s *ReviewService) FindById(id int) (*model.Reviews, error) {
